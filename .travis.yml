@@ -3,11 +3,9 @@ language: ruby
 services:
   - postgresql
 
-before_install: 
-  - psql -c 'create database travis_ci_test;' -U postgres
-
-  
 script:
+  - export RAILS_ENV=test
+  - bundle exec rake db:create db:schema:load db:test:prepare
   - bundle exec spring binstub --all
   - bundle install
   - bundle exec rspec
@@ -22,3 +20,6 @@ notifications:
 branches:
   only:
     - master
+
+notifications:
+      slack: tccjoaomarco:2hqlJdioZoVlvpFInYZVBqqS
