@@ -4,25 +4,23 @@
 [![Build Status](https://travis-ci.org/Guimifiu/guimifiu-backend.svg?branch=master)](https://travis-ci.org/Guimifiu/guimifiu-backend)
 [![Coverage Status](https://coveralls.io/repos/github/Guimifiu/guimifiu-backend/badge.svg?branch=master)](https://coveralls.io/github/Guimifiu/guimifiu-backend?branch=master)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+### Project Versions:
 
-* Ruby version
+* Rails 5.0
 
-* System dependencies
+* Ruby > 2.2.2 
 
-* Configuration
+* Database postgres
 
-* Database creation
+### Running project:
 
-* Database initialization
+$ git clone
+$ bundle install
+$ rake db:create
+$ rake db:migrate
+$ rails s
 
-* How to run the test suite
+### Running tests:
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+$ bundle exec rspec
