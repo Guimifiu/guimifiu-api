@@ -1,13 +1,14 @@
 class Api::V1::UsersController < ApplicationController
 
+  before_action :search_user, only: [:search]
+
   def create
     @user = User.new(user_params)
     if @user.provider != 'Email'
       @user.password = SecureRandom.hex
     end
     if @user.save
-      @response = { 'user': @user }
-      render json: @response, status: :created
+      render json: @user, status: :created
     else
       @user_response = User.find_by_email(@user.email)
       @response =
@@ -26,11 +27,18 @@ class Api::V1::UsersController < ApplicationController
     @user = User.find_by_email(@email)
     if @user.present?
       if @user.valid_password?(@password)
-        @response = { "user": @user }
-        render json: @response, status: :ok
+        render json: @user, status: :ok
       else
         head :not_found
       end
+    else
+      head :not_found
+    end
+  end
+
+  def search
+    if @user.present?
+      render json: @user, status: :ok
     else
       head :not_found
     end
@@ -44,6 +52,10 @@ class Api::V1::UsersController < ApplicationController
 
   def set_user_with_user_id
     @user = User.find_by_id(params[:user_id])
+  end
+
+  def search_user
+    @user = User.find_by_email(params[:email])
   end
 
   def user_params

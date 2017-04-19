@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       end
       post 'users/exists'   => 'users#provider_exists'
       post 'users/sign_in'  => 'users#sign_in'
+      get  'users'          => 'users#search'
     end
   end
 end
