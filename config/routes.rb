@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       post 'users/exists'   => 'users#provider_exists'
       post 'users/sign_in'  => 'users#sign_in'
       post 'users/create'   => 'users#create'
+      post 'users/delete'   => 'users#delete'
       get  'users'          => 'users#search'
     end
   end

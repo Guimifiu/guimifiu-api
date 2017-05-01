@@ -21,6 +21,10 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
+  def delete
+    @user.destroy
+  end
+
   def sign_in
     @email = params[:user][:email]
     @password = params[:user][:password]
