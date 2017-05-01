@@ -4,7 +4,7 @@ class Api::V1::UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.provider != 'Email'
+    if @user.provider != 'email'
       @user.password = SecureRandom.hex
     end
     if @user.save
@@ -30,6 +30,7 @@ class Api::V1::UsersController < ApplicationController
     @password = params[:user][:password]
     @user = User.find_by_email(@email)
     if @user.present?
+      p @user
       if @user.valid_password?(@password)
         render json: @user, status: :ok
       else
