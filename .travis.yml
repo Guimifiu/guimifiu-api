@@ -1,24 +1,21 @@
 language: ruby
-
 services:
-  - postgresql
-
+- postgresql
 script:
-  - export RAILS_ENV=test
-  - bundle exec rake db:create db:schema:load db:test:prepare
-  - bundle exec spring binstub --all
-  - bundle install
-  - bundle exec rspec
-
+- "./scripts/complexity_check.sh"
+- export RAILS_ENV=test
+- bundle exec rake db:create db:schema:load db:test:prepare
+- bundle exec spring binstub --all
+- bundle install
+- bundle exec rspec
 rvm:
-  - 2.3.1
-
+- 2.3.1
 deploy:
   provider: heroku
-  api_key: HEROKU_API_KEY
+  api_key: "${HEROKU_API_KEY}"
   app:
     master: guimifiu
     staging: staging-guimifiu
-
 notifications:
-      slack: tccjoaomarco:2hqlJdioZoVlvpFInYZVBqqS
+  slack:
+    secure: "NJsa5VlPa/E4TZubqYuCoAYrxELLphU9eyNMtXy5nsN59zVONRdMo/iHHocGP5shFNaI4F+CbQ5EBwkze7yfEYG1EpBlGgxA9G8/iMxXMoZuhTtrnzgaG7JFz7XqzTbbUCTudz1qP37MRp1JVT7p1JcMLJIDZEfF1ybGirbFUrW8MVMWbIsf8yMo7RHzeeBMx27QA6sbD5F2ykurDDafDoXXq6XeChSRTEgqYXVWZNd6OGYRf5ZNG80oql0KqM0h3wKi3w3hdFB0x0nKhkIyzBU4Mhr0O39rpsA5BX6RTGLFaN2gvS6Wodh1tzc7SWVXiX13m1/93jSlxCqsgSb4nCiIvV++jxTyHevM1p/baJs+ZDhV0DciIyvHIk4TygkvL2p7EdEbu0Bjh0t42n82IUs9USqVp7nlVQBvXBqCjYZzzwfuj6GAFfpbexqyowPRS3ECwVAN2yHJIMsMFoaUJwtXhO0WuLXRAiaiMhyU3bR6e3MOKLK5QXIR31mQ2K1G3f+jzbmO5SZsOsNGARGRW909uMx80Au0USYDsqaDsvF2VpZYMY+oNtBNg4kWrawqihHVvwDzxvA08nuKLF80Z3wZeCWOD0TmVYBwvcEWU1kE4f+KOtxGB4rYzWl9of5bqHtj6WUyNiSSJyrm86nUS6YwY0/OfkbphboRx8peZBw="

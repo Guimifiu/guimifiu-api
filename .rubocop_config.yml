@@ -1,0 +1,72 @@
+#Bundler
+Bundler/OrderedGems:
+  Enabled: false
+
+#Complexity
+Metrics/BlockLength:
+  Max: 30
+
+Metrics/LineLength:
+  Enabled: false
+
+Metrics/ClassLength:
+  Max: 250
+
+Metrics/CyclomaticComplexity:
+  Max: 6
+
+Metrics/ModuleLength:
+  Max: 250
+
+Metrics/MethodLength:
+  Max: 30
+
+
+#Style
+Style/BlockComments:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/EmptyLines:
+  Enabled: false
+
+Style/EmptyLinesAroundAccessModifier:
+  Enabled: false
+
+Style/EmptyLinesAroundBlockBody:
+  Enabled: false
+
+Style/EmptyLinesAroundClassBody:
+  Enabled: false
+
+Style/ExtraSpacing:
+  Enabled: false
+
+Style/HashSyntax:
+  Enabled: false
+
+Style/NumericLiterals:
+  Enabled: false
+
+Style/PercentLiteralDelimiters:
+  Enabled: false
+
+Style/SpaceAfterComma:
+  Enabled: false
+
+Style/SpaceBeforeComma:
+  Enabled: false
+
+Style/SpaceInsideBrackets:
+  Enabled: false
+
+Style/StringLiterals:
+  Enabled: false
+
+Style/SymbolArray:
+  Enabled: false
+
+Style/TrailingBlankLines:
+  Enabled: false

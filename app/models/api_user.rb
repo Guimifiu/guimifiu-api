@@ -8,6 +8,6 @@ class ApiUser < ApplicationRecord
   end
 
   def generate_auth_token
-    SecureRandom.uuid.gsub(/\-/,'')
+    SecureRandom.uuid.delete("\-")
   end
 end
