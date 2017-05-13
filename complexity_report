@@ -1,0 +1,24 @@
+Inspecting 46 files
+.........E...C........C.C.....................
+
+Offenses:
+
+app/controllers/api/v1/users_controller.rb:16:18: E: unexpected token tCOLON
+(Using Ruby 2.1 parser; configure using TargetRubyVersion parameter, under AllCops)
+        "message": "Validation Failed",
+                 ^
+app/controllers/api/v1/users_controller.rb:18:15: E: unexpected token tCOLON
+(Using Ruby 2.1 parser; configure using TargetRubyVersion parameter, under AllCops)
+        "user": @user_response
+              ^
+app/models/api_user.rb:5:3: C: Cyclomatic complexity for set_auth_token is too high. [2/1]
+  def set_auth_token
+  ^^^
+bin/update:9:1: C: Cyclomatic complexity for system! is too high. [2/1]
+def system!(*args)
+^^^
+bin/setup:9:1: C: Cyclomatic complexity for system! is too high. [2/1]
+def system!(*args)
+^^^
+
+46 files inspected, 5 offenses detected
