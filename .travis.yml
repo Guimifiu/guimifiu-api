@@ -12,14 +12,13 @@ script:
 
 rvm:
   - 2.3.1
-notifications:
-  email:
-    recipients:
-      - marcowilliamdf@gmail.com
-  
-branches:
-  only:
-    - master
+
+deploy:
+  provider: heroku
+  api_key: HEROKU_API_KEY
+  app:
+    master: guimifiu
+    staging: staging-guimifiu
 
 notifications:
       slack: tccjoaomarco:2hqlJdioZoVlvpFInYZVBqqS
