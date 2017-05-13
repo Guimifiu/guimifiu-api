@@ -13,6 +13,7 @@ rvm:
 deploy:
   provider: heroku
   api_key: "${HEROKU_API_KEY}"
+  run: "rake db:migrate"
   app:
     master: guimifiu
     staging: staging-guimifiu
