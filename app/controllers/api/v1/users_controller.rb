@@ -22,7 +22,17 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def delete
-    @user.destroy
+    @user_email = params[:user][:email]
+    @user = User.find_by_email(@user_email)
+    if @user.present?
+      if @user.destroy
+        render json: @user, status: :ok
+      else
+        head :not_found
+      end
+    else
+      head :not_found
+    end
   end
 
   def sign_in
@@ -30,7 +40,6 @@ class Api::V1::UsersController < ApplicationController
     @password = params[:user][:password]
     @user = User.find_by_email(@email)
     if @user.present?
-      p @user
       if @user.valid_password?(@password)
         render json: @user, status: :ok
       else
