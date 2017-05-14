@@ -13,9 +13,9 @@ class Api::V1::UsersController < ApplicationController
       @user_response = User.find_by_email(@user.email)
       @response =
       {
-        "message": "Validation Failed",
-        "errors": @user.errors.full_messages,
-        "user": @user_response
+        'message' => "Validation Failed",
+        'errors' => @user.errors.full_messages,
+        'user' => @user_response
       }
       render json: @response, status: :conflict
     end

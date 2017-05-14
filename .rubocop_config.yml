@@ -1,3 +1,6 @@
+AllCops:
+  TargetRubyVersion: 2.3.1  
+
 #Bundler
 Bundler/OrderedGems:
   Enabled: false
@@ -21,8 +24,22 @@ Metrics/ModuleLength:
 Metrics/MethodLength:
   Max: 30
 
-
 #Style
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/IndentAssignment:
+  Enabled: false
+
+Style/AlignParameters:
+  Enabled: false
+
 Style/BlockComments:
   Enabled: false
 
@@ -53,9 +70,6 @@ Style/NumericLiterals:
 Style/PercentLiteralDelimiters:
   Enabled: false
 
-Style/SpaceAfterComma:
-  Enabled: false
-
 Style/SpaceBeforeComma:
   Enabled: false
 
@@ -68,5 +82,3 @@ Style/StringLiterals:
 Style/SymbolArray:
   Enabled: false
 
-Style/TrailingBlankLines:
-  Enabled: false

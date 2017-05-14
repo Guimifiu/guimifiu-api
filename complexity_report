@@ -1,8 +1,11 @@
 Inspecting 46 files
-.........E...C........C.C.....................
+........CE...CCCC..CCC......C.................
 
 Offenses:
 
+app/controllers/application_controller.rb:1:1: C: Missing top-level class documentation comment.
+class ApplicationController < ActionController::API
+^^^^^
 app/controllers/api/v1/users_controller.rb:16:18: E: unexpected token tCOLON
 (Using Ruby 2.1 parser; configure using TargetRubyVersion parameter, under AllCops)
         "message": "Validation Failed",
@@ -11,14 +14,29 @@ app/controllers/api/v1/users_controller.rb:18:15: E: unexpected token tCOLON
 (Using Ruby 2.1 parser; configure using TargetRubyVersion parameter, under AllCops)
         "user": @user_response
               ^
-app/models/api_user.rb:5:3: C: Cyclomatic complexity for set_auth_token is too high. [2/1]
-  def set_auth_token
-  ^^^
-bin/update:9:1: C: Cyclomatic complexity for system! is too high. [2/1]
-def system!(*args)
-^^^
-bin/setup:9:1: C: Cyclomatic complexity for system! is too high. [2/1]
-def system!(*args)
-^^^
+app/models/api_user.rb:1:1: C: Missing top-level class documentation comment.
+class ApiUser < ApplicationRecord
+^^^^^
+app/models/application_record.rb:1:1: C: Missing top-level class documentation comment.
+class ApplicationRecord < ActiveRecord::Base
+^^^^^
+app/models/user.rb:1:1: C: Missing top-level class documentation comment.
+class User < ApplicationRecord
+^^^^^
+app/mailers/application_mailer.rb:1:1: C: Missing top-level class documentation comment.
+class ApplicationMailer < ActionMailer::Base
+^^^^^
+db/migrate/20170405132726_add_fields_to_users.rb:1:1: C: Missing top-level class documentation comment.
+class AddFieldsToUsers < ActiveRecord::Migration[5.0]
+^^^^^
+db/migrate/20170331135612_create_api_users.rb:1:1: C: Missing top-level class documentation comment.
+class CreateApiUsers < ActiveRecord::Migration[5.0]
+^^^^^
+db/migrate/20170405132602_devise_create_users.rb:1:1: C: Missing top-level class documentation comment.
+class DeviseCreateUsers < ActiveRecord::Migration[5.0]
+^^^^^
+config/application.rb:20:3: C: Missing top-level class documentation comment.
+  class Application < Rails::Application
+  ^^^^^
 
-46 files inspected, 5 offenses detected
+46 files inspected, 11 offenses detected
