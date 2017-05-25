@@ -9,7 +9,7 @@ namespace :populate do
     gas_stations = google_maps.get_gas_stations("-16.013879", "-48.064698", "5000")
 
     gas_stations.each do |gas_station|
-      new_gas_station = GasStation.find_by_google_maps_id(gas_station['id'])
+      new_gas_station = GasStation.find_by_google_maps_id(gas_station['place_id'])
       next if new_gas_station.present?
       puts "Name/GoogleMaps-id:"
       puts "#{gas_station['name']} - #{gas_station['id']}"
@@ -18,7 +18,7 @@ namespace :populate do
           name: gas_station['name'],
           latitude: gas_station['geometry']['location']['lat'],
           longitude: gas_station['geometry']['location']['lng'],
-          google_maps_id: gas_station['id'],
+          google_maps_id: gas_station['place_id'],
           vicinity: gas_station['vicinity']
         )
       end

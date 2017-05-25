@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20170524184057) do
   create_table "gas_stations", force: :cascade do |t|
     t.string   "latitude"
     t.string   "longitude"
-    t.integer  "google_maps_id"
+    t.string   "google_maps_id"
     t.string   "vicinity"
     t.string   "name"
     t.datetime "created_at",     null: false
