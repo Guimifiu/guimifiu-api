@@ -13,4 +13,12 @@ class GoogleMaps
     return body['results']
   end
 
+  def get_place_location(place_id)
+    url = "/place/details/json?placeid=#{place_id}&key=#{@key}"
+    puts url
+    response = self.class.get(url)
+    body = JSON.parse response.body.encode("ASCII",{undef: :replace,replace: ''})
+    return body
+  end
+
 end

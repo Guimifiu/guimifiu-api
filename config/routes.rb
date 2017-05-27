@@ -13,8 +13,11 @@ Rails.application.routes.draw do
       get  'users'          => 'users#search'
 
       #gas_stations
-      get  'gas-stations'          => 'gas_stations#get_all'
-      
+      get  'gas-stations'  => 'gas_stations#get_all'
+
+      #google_maps
+      get 'get-place-location/:place_id' =>  'google_maps#get_place_location'
+
     end
   end
 end

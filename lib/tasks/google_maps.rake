@@ -6,7 +6,8 @@ namespace :populate do
     gas_stations_created_count = 0
 
     google_maps = GoogleMaps.new
-    gas_stations = google_maps.get_gas_stations("-16.013879", "-48.064698", "5000")
+    gas_stations = google_maps.get_gas_stations("-15.766267", "-47.871106", "10000")
+    
 
     gas_stations.each do |gas_station|
       new_gas_station = GasStation.find_by_google_maps_id(gas_station['place_id'])
