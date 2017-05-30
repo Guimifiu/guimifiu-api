@@ -16,7 +16,10 @@ Rails.application.routes.draw do
       get  'gas-stations'  => 'gas_stations#get_all'
 
       #google_maps
-      get 'get-place-location/:place_id' =>  'google_maps#get_place_location'
+      get 'get-place-location/:place_id'   =>  'google_maps#get_place_location'
+      get 'get-gas-stations-on-direction' => 'google_maps#get_gas_stations_on_direction'
+      get 'gas-stations/closest'          => 'google_maps#get_closest_gas_stations'
+
 
     end
   end
