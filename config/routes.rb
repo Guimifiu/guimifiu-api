@@ -5,18 +5,18 @@ Rails.application.routes.draw do
       resources :users, except: [:new, :index, :edit, :show] do
       end
 
-      #users
+      # users
       post 'users/exists'   => 'users#provider_exists'
       post 'users/sign-in'  => 'users#sign_in'
       post 'users/create'   => 'users#create'
       post 'users/delete'   => 'users#delete'
       get  'users'          => 'users#search'
 
-      #gas_stations
-      get  'gas-stations'  => 'gas_stations#get_all'
+      # gas_stations
+      get  'gas-stations' => 'gas_stations#get_all'
 
-      #google_maps
-      get 'get-place-location/:place_id'   =>  'google_maps#get_place_location'
+      # google_maps
+      get 'get-place-location/:place_id'  =>  'google_maps#get_place_location'
       get 'get-gas-stations-on-direction' => 'google_maps#get_gas_stations_on_direction'
       get 'gas-stations/closest'          => 'google_maps#get_closest_gas_stations'
 

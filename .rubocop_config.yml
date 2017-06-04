@@ -7,7 +7,7 @@ Bundler/OrderedGems:
 
 #Complexity
 Metrics/BlockLength:
-  Max: 30
+  Max: 50
 
 Metrics/LineLength:
   Enabled: false
@@ -23,6 +23,13 @@ Metrics/ModuleLength:
 
 Metrics/MethodLength:
   Max: 30
+
+Metrics/AbcSize:
+  Enabled: true
+  Max: 40
+
+Lint/UselessAssignment:
+  Enabled: false
 
 #Style
 Style/FrozenStringLiteralComment:
@@ -82,3 +89,11 @@ Style/StringLiterals:
 Style/SymbolArray:
   Enabled: false
 
+Style/AccessorMethodName:
+  Enabled: false
+
+Style/RedundantReturn:
+  Enabled: false
+
+Style/BracesAroundHashParameters:
+  Enabled: false
