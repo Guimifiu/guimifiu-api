@@ -1,6 +1,7 @@
 class Api::V1::UsersController < ApplicationController
 
   before_action :search_user, only: [:search]
+  before_action :set_user, only: [:update]
 
   def create
     @user = User.new(user_params)
@@ -16,6 +17,20 @@ class Api::V1::UsersController < ApplicationController
         'message' => "Validation Failed",
         'errors' => @user.errors.full_messages,
         'user' => @user_response
+      }
+      render json: @response, status: :conflict
+    end
+  end
+
+  def update
+    if @user.update(user_params)
+      @response = { "user": @user }
+      render json: @response, status: :ok
+    else
+      @response =
+      {
+        "message": "Validation Failed",
+        "errors": @user.errors.full_messages
       }
       render json: @response, status: :conflict
     end
