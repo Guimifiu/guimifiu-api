@@ -40,7 +40,7 @@ class Api::V1::GoogleMapsController < ApplicationController
     longitude = params[:longitude]
     @gas_stations_found = []
     save_gas_stations(latitude, longitude, 5000)
-    
+
     render json: @gas_stations_found, status: :ok
   end
 
