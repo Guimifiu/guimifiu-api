@@ -1,0 +1,2 @@
+class PriceSuggestion < ApplicationRecord
+end

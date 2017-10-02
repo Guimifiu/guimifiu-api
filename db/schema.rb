@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170524184057) do
+ActiveRecord::Schema.define(version: 20171001192937) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,18 @@ ActiveRecord::Schema.define(version: 20170524184057) do
     t.string   "google_maps_id"
     t.string   "vicinity"
     t.string   "name"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.float    "gasoline_price"
+    t.float    "alcohol_price"
+    t.float    "diesel_price"
+  end
+
+  create_table "price_suggestions", force: :cascade do |t|
+    t.string   "type"
+    t.string   "user_id"
+    t.string   "gas_station_id"
+    t.string   "value"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
