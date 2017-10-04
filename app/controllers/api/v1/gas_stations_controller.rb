@@ -8,7 +8,6 @@ class Api::V1::GasStationsController < ApplicationController
   end
 
   def get_gas_station_prices
-  	
   end
 
 end
