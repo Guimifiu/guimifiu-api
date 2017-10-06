@@ -3,10 +3,10 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resources :users, except: [:new, :index, :edit, :show] do
-      end
-      resources :price_suggestions, except: [:new, :index, :edit, :show, :update] do
-      end
-      resources :fuel_supplies, except: [:new, :index, :edit, :show, :update] do
+        resources :fuel_supplies, except: [:new, :edit, :show, :update] do
+        end
+        resources :price_suggestions, except: [:new, :index, :edit, :show, :update] do
+        end
       end
 
       # users

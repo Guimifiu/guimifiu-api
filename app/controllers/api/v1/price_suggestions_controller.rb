@@ -1,7 +1,9 @@
 class Api::V1::PriceSuggestionsController < ApplicationController
 
+  before_action :set_user, only: [:create]
+
   def create
-    @price_suggestion = PriceSuggestion.new(price_suggestion_params)
+    @price_suggestion = @user.price_suggestions.new(price_suggestion_params)
     if @price_suggestion.save
       render json: @price_suggestion, status: :created
     else
@@ -16,7 +18,11 @@ class Api::V1::PriceSuggestionsController < ApplicationController
 
   private
   def price_suggestion_params
-    params.require(:price_suggestion).permit(:fuel_type, :user_id, :gas_station_id, :value)
+    params.require(:price_suggestion).permit(:fuel_type, :gas_station_id, :value)
+  end
+
+  def set_user
+    @user = User.find_by_id(params[:user_id])
   end
 
 end
