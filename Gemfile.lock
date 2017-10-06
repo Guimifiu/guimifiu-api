@@ -77,6 +77,17 @@ GEM
       activesupport (>= 3.0.0, < 5.2)
       multi_json (~> 1.2)
     json (2.0.3)
+    jsonapi-deserializable (0.2.0)
+    jsonapi-parser (0.1.1)
+    jsonapi-rails (0.3.1)
+      jsonapi-parser (~> 0.1.0)
+      jsonapi-rb (~> 0.5.0)
+    jsonapi-rb (0.5.0)
+      jsonapi-deserializable (~> 0.2.0)
+      jsonapi-serializable (~> 0.3.0)
+    jsonapi-renderer (0.2.0)
+    jsonapi-serializable (0.3.0)
+      jsonapi-renderer (~> 0.2.0)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -206,6 +217,7 @@ DEPENDENCIES
   faker
   httparty
   jbuilder (~> 2.5)
+  jsonapi-rails
   listen (~> 3.0.5)
   pg (~> 0.18)
   puma (~> 3.0)
@@ -218,4 +230,4 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
 
 BUNDLED WITH
-   1.14.6
+   1.15.1

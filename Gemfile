@@ -22,6 +22,8 @@ gem 'bcrypt', '~> 3.1.7'
 # authentication
 gem 'devise'
 
+gem 'jsonapi-rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
