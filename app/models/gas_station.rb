@@ -1,6 +1,8 @@
 class GasStation < ApplicationRecord
   has_many :price_suggestions
   has_many :users_price_suggestions, through: :price_suggestions, class_name: 'User'
+  has_many :fuel_supplies
+  has_many :users_fuel_supplies, through: :fuel_supplies, class_name: 'User'
 
   def gas_price
     price_suggestion = self.price_suggestions.where(fuel_type: 'gas').last
