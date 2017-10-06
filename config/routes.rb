@@ -6,6 +6,8 @@ Rails.application.routes.draw do
       end
       resources :price_suggestions, except: [:new, :index, :edit, :show, :update] do
       end
+      resources :fuel_supplies, except: [:new, :index, :edit, :show, :update] do
+      end
 
       # users
       post 'users/exists'   => 'users#provider_exists'
