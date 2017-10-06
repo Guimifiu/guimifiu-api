@@ -4,7 +4,7 @@ class Api::V1::FuelSuppliesController < ApplicationController
 
   def index
     @fuel_supplies = @user.fuel_supplies
-    render json: @fuel_supplies, status: :ok
+    render json: @fuel_supplies.to_json(methods: [:date, :gas_station_name]), status: :ok
   end
 
   def create
