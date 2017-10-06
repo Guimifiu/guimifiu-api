@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :users, except: [:new, :index, :edit, :show] do
       end
+      resources :price_suggestions, except: [:new, :index, :edit, :show, :update] do
+      end
 
       # users
       post 'users/exists'   => 'users#provider_exists'
