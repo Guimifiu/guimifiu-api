@@ -1,10 +1,18 @@
 class Api::V1::FuelSuppliesController < ApplicationController
 
-  before_action :set_user, only: [:create, :index]
+  before_action :set_user, only: [:create, :index, :history_months]
 
   def index
-    @fuel_supplies = @user.fuel_supplies
+    month_year = params[:month_year]
+    @fuel_supplies = @user.fuel_supplies.order('created_at DESC')
+    if !month_year.nil? && !month_year.empty?
+      @fuel_supplies = @fuel_supplies.select { |f| f.created_at.strftime('%m/%Y') == month_year }
+    end
     render json: @fuel_supplies.to_json(methods: [:date, :gas_station_name]), status: :ok
+  end
+
+  def history_months
+    render json: @user.fuel_supply_history_months
   end
 
   def create
