@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171006144937) do
+ActiveRecord::Schema.define(version: 20171007160630) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20171006144937) do
     t.decimal  "value"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.integer  "fuel_type"
     t.index ["gas_station_id"], name: "index_fuel_supplies_on_gas_station_id", using: :btree
     t.index ["user_id"], name: "index_fuel_supplies_on_user_id", using: :btree
   end
@@ -53,6 +54,16 @@ ActiveRecord::Schema.define(version: 20171006144937) do
     t.datetime "updated_at",     null: false
     t.index ["gas_station_id"], name: "index_price_suggestions_on_gas_station_id", using: :btree
     t.index ["user_id"], name: "index_price_suggestions_on_user_id", using: :btree
+  end
+
+  create_table "ratings", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "gas_station_id"
+    t.integer  "stars"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["gas_station_id"], name: "index_ratings_on_gas_station_id", using: :btree
+    t.index ["user_id"], name: "index_ratings_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -83,4 +94,6 @@ ActiveRecord::Schema.define(version: 20171006144937) do
   add_foreign_key "fuel_supplies", "users"
   add_foreign_key "price_suggestions", "gas_stations"
   add_foreign_key "price_suggestions", "users"
+  add_foreign_key "ratings", "gas_stations"
+  add_foreign_key "ratings", "users"
 end

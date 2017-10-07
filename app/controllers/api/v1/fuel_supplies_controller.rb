@@ -31,7 +31,7 @@ class Api::V1::FuelSuppliesController < ApplicationController
 
   private
   def fuel_supply_params
-    params.require(:fuel_supply).permit(:fuelled, :gas_station_id, :value, :boycotted)
+    params.require(:fuel_supply).permit(:fuelled, :gas_station_id, :value, :boycotted, :fuel_type)
   end
 
   def set_user

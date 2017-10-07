@@ -8,6 +8,8 @@ Rails.application.routes.draw do
         end
         resources :price_suggestions, except: [:new, :index, :edit, :show, :update] do
         end
+        resources :ratings, except: [:new, :edit, :show, :update, :index] do
+        end
       end
 
       # users
