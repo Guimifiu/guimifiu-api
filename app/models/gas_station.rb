@@ -1,4 +1,6 @@
 class GasStation < ApplicationRecord
+  include ActionView::Helpers::NumberHelper
+
   has_many :price_suggestions
   has_many :users_price_suggestions, through: :price_suggestions, class_name: 'User'
   has_many :fuel_supplies
@@ -19,5 +21,10 @@ class GasStation < ApplicationRecord
   def diesel_price
     price_suggestion = self.price_suggestions.where(fuel_type: 'diesel').last
     price_suggestion.nil? ? nil : price_suggestion.value
+  end
+
+  def reputation
+    stars = self.ratings.average(:stars)
+    return number_with_precision(stars, precision: 2, separator: '.')
   end
 end

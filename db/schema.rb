@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171007160630) do
+ActiveRecord::Schema.define(version: 20171008011850) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,8 @@ ActiveRecord::Schema.define(version: 20171007160630) do
     t.integer  "stars"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.integer  "fuel_supply_id"
+    t.index ["fuel_supply_id"], name: "index_ratings_on_fuel_supply_id", using: :btree
     t.index ["gas_station_id"], name: "index_ratings_on_gas_station_id", using: :btree
     t.index ["user_id"], name: "index_ratings_on_user_id", using: :btree
   end
@@ -94,6 +96,7 @@ ActiveRecord::Schema.define(version: 20171007160630) do
   add_foreign_key "fuel_supplies", "users"
   add_foreign_key "price_suggestions", "gas_stations"
   add_foreign_key "price_suggestions", "users"
+  add_foreign_key "ratings", "fuel_supplies"
   add_foreign_key "ratings", "gas_stations"
   add_foreign_key "ratings", "users"
 end

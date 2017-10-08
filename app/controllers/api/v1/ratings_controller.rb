@@ -18,7 +18,7 @@ class Api::V1::RatingsController < ApplicationController
 
   private
   def rating_params
-    params.require(:rating).permit(:stars, :gas_station_id,)
+    params.require(:rating).permit(:stars, :gas_station_id, :fuel_supply_id)
   end
 
   def set_user
