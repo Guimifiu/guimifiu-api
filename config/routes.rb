@@ -21,11 +21,16 @@ Rails.application.routes.draw do
 
       # gas_stations
       get  'gas-stations' => 'gas_stations#get_all'
+      resources :gas_stations, except: [:new, :edit, :update, :create] do
+      end
 
       # google_maps
       get 'get-place-location/:place_id'  =>  'google_maps#get_place_location'
       get 'get-gas-stations-on-direction' => 'google_maps#get_gas_stations_on_direction'
       get 'gas-stations/closest'          => 'google_maps#get_closest_gas_stations'
+
+      # push_notifications
+      post 'push_notifications/at_gas_station_notification'  =>  'push_notifications#at_gas_station_notification'
 
 
     end
