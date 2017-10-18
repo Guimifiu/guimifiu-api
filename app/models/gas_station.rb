@@ -7,6 +7,7 @@ class GasStation < ApplicationRecord
   has_many :users_fuel_supplies, through: :fuel_supplies, class_name: 'User'
   has_many :ratings
   has_many :users_ratings, through: :ratings, class_name: 'User'
+  has_and_belongs_to_many :boycotts
 
   def gas_price
     price_suggestion = self.price_suggestions.where(fuel_type: 'gas').last
