@@ -10,6 +10,8 @@ Rails.application.routes.draw do
         end
         resources :ratings, except: [:new, :edit, :show, :update, :index] do
         end
+        # charts
+        get 'charts/monthly' => 'fuel_supplies_charts#monthly_chart'
       end
 
       # users

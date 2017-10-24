@@ -1,7 +1,7 @@
 class FuelSupply < ApplicationRecord
   belongs_to :user
   belongs_to :gas_station
-  has_one :rating
+  has_one :rating, dependent: :destroy
 
   enum fuel_type: {
     gas: 0,
