@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171018132745) do
+ActiveRecord::Schema.define(version: 20171025094454) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 20171018132745) do
     t.string   "auth_token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "boycott_distributors", force: :cascade do |t|
+    t.date     "start_date"
+    t.date     "end_date"
+    t.integer  "distributor_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["distributor_id"], name: "index_boycott_distributors_on_distributor_id", using: :btree
   end
 
   create_table "boycotts", force: :cascade do |t|
@@ -34,6 +43,13 @@ ActiveRecord::Schema.define(version: 20171018132745) do
     t.integer "boycott_id"
     t.index ["boycott_id"], name: "index_boycotts_gas_stations_on_boycott_id", using: :btree
     t.index ["gas_station_id"], name: "index_boycotts_gas_stations_on_gas_station_id", using: :btree
+  end
+
+  create_table "distributors", force: :cascade do |t|
+    t.string   "name"
+    t.string   "image_path"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "fuel_supplies", force: :cascade do |t|
@@ -57,6 +73,8 @@ ActiveRecord::Schema.define(version: 20171018132745) do
     t.string   "name"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.integer  "distributor_id"
+    t.index ["distributor_id"], name: "index_gas_stations_on_distributor_id", using: :btree
   end
 
   create_table "price_suggestions", force: :cascade do |t|
@@ -107,10 +125,12 @@ ActiveRecord::Schema.define(version: 20171018132745) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "boycott_distributors", "distributors"
   add_foreign_key "boycotts_gas_stations", "boycotts"
   add_foreign_key "boycotts_gas_stations", "gas_stations"
   add_foreign_key "fuel_supplies", "gas_stations"
   add_foreign_key "fuel_supplies", "users"
+  add_foreign_key "gas_stations", "distributors"
   add_foreign_key "price_suggestions", "gas_stations"
   add_foreign_key "price_suggestions", "users"
   add_foreign_key "ratings", "fuel_supplies"

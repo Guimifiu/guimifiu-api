@@ -4,12 +4,12 @@ class Api::V1::GasStationsController < ApplicationController
 
   def get_all
     gas_stations = GasStation.all
-    render json: gas_stations.to_json(methods: [:gas_price, :diesel_price, :alcohol_price, :reputation]), status: :ok
+    render json: gas_stations.to_json(methods: [:gas_price, :diesel_price, :alcohol_price, :reputation, :icon]), status: :ok
   end
 
   def show
     if @gas_station.present?
-      render json: @gas_station.to_json(methods: [:gas_price, :diesel_price, :alcohol_price, :reputation]), status: :ok
+      render json: @gas_station.to_json(methods: [:gas_price, :diesel_price, :alcohol_price, :reputation, :icon]), status: :ok
     else
       head :not_found
     end

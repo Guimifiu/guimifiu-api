@@ -8,6 +8,7 @@ class GasStation < ApplicationRecord
   has_many :ratings
   has_many :users_ratings, through: :ratings, class_name: 'User'
   has_and_belongs_to_many :boycotts
+  belongs_to :distributor
 
   def gas_price
     price_suggestion = self.price_suggestions.where(fuel_type: 'gas').last
@@ -27,5 +28,10 @@ class GasStation < ApplicationRecord
   def reputation
     stars = self.ratings.average(:stars)
     return number_with_precision(stars, precision: 2, separator: '.')
+  end
+
+  def icon
+      return self.distributor.image_path if !self.distributor.nil?
+      return 'pump_map'
   end
 end
