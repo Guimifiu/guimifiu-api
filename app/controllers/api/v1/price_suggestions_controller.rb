@@ -1,4 +1,4 @@
-class Api::V1::PriceSuggestionsController < ApplicationController
+class Api::V1::PriceSuggestionsController < ApiController
 
   before_action :set_user, only: [:create]
 

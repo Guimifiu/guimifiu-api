@@ -27,6 +27,11 @@ module GuimifiuBackend
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
     config.middleware.use ActionDispatch::Flash
+    config.session_store :cookie_store
+    config.middleware.use ActionDispatch::Cookies
+    config.middleware.use ActionDispatch::Session::CookieStore, config.session_options
+    config.middleware.use ::Rack::MethodOverride
+    config.i18n.default_locale = 'pt-BR'
 
     config.middleware.insert_before 0, "Rack::Cors" do
       allow do

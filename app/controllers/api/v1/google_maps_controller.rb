@@ -1,4 +1,4 @@
-class Api::V1::GoogleMapsController < ApplicationController
+class Api::V1::GoogleMapsController < ApiController
   before_action :set_google_maps, only: [:get_place_location, :get_gas_stations_on_direction, :get_closest_gas_stations]
 
   def get_place_location

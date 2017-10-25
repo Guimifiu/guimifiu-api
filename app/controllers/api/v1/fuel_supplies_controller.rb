@@ -1,4 +1,4 @@
-class Api::V1::FuelSuppliesController < ApplicationController
+class Api::V1::FuelSuppliesController < ApiController
 
   before_action :set_user, only: [:create, :index, :history_months]
 

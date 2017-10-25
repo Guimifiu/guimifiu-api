@@ -1,4 +1,4 @@
-class Api::V1::GasStationsController < ApplicationController
+class Api::V1::GasStationsController < ApiController
 
   before_action :set_gas_station, only: [:show]
 

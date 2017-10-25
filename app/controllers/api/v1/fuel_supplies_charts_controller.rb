@@ -1,4 +1,4 @@
-class Api::V1::FuelSuppliesChartsController < ApplicationController
+class Api::V1::FuelSuppliesChartsController < ApiController
 
   before_action :set_user, only: [:monthly_chart]
 

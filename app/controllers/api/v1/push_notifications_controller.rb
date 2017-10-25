@@ -1,4 +1,4 @@
-class Api::V1::PushNotificationsController < ApplicationController
+class Api::V1::PushNotificationsController < ApiController
 
   def at_gas_station_notification
     user_device_token = params[:push_notification][:user_device_token]

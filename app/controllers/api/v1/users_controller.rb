@@ -1,4 +1,4 @@
-class Api::V1::UsersController < ApplicationController
+class Api::V1::UsersController < ApiController
 
   before_action :search_user, only: [:search]
   before_action :set_user, only: [:update]
