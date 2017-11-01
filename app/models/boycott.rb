@@ -1,4 +1,6 @@
 class Boycott < ApplicationRecord
+    validate :check_boycott_existence
+
     has_and_belongs_to_many :gas_stations
 
     def self.boycott_existense(start_date, end_date)
@@ -8,5 +10,15 @@ class Boycott < ApplicationRecord
             return false
         end
         return true
+    end
+
+    private
+    def check_boycott_existence
+        if Boycott.boycott_existense(self.start_date, self.end_date)
+            errors.add(:data_do_boicote, ': Já existe um boicote por postos em andamento neste período')
+        end
+        if BoycottDistributor.boycott_existense(self.start_date, self.end_date)
+            errors.add(:data_do_boicote, ': Já existe um boicote por bandeira em andamento neste período')
+        end
     end
 end
