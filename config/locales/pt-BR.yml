@@ -2,7 +2,15 @@ pt-BR:
   activerecord:
     models:
       boycott_distributor: 'Boicote por bandeira'
+      admin: 'Administrador'
       boycott: 'Boicote por postos'
+      api_user: 'Usuário da API'
+      distributor: 'Bandeira'
+      fuel_supply: 'Abastecimento'
+      gas_station: 'Posto de combustível'
+      price_suggestion: 'Sugestão de preço'
+      rating: 'Avaliação'
+      user: 'Usuário'
     attributes:
       boycott_distributor:
         start_date: "Data de início"
@@ -12,6 +20,42 @@ pt-BR:
         start_date: "Data de início"
         end_date: "Data de fim"
         gas_stations: "Postos de combustível"
+      fuel_supply:
+        user: 'Usuário'
+        gas_station: 'Posto de combustível'
+        fuelled: 'Abasteceu'
+        boycotted: 'Boicotado'
+        value: 'Valor'
+        fuel_type: 'Tipo de combustível'
+        rating: 'Avaliação'
+      rating:
+        user: 'Usuário'
+        gas_station: 'Posto de combustível'
+        stars: 'Estrelas'
+        fuel_supply: 'Abastecimento'
+      distributor:
+        name: "Nome"
+        image_path: "Caminho da imagem"
+      gas_station:
+        vicinity: "Vizinhança"
+        name: "Nome"
+        distributor: "Bandeira"
+        price_suggestions: "Sugestões de preços"
+        fuel_supplies: "Abastecimentos"
+        ratings: "Avaliações"
+        boycotts: "Boicotes"
+      price_suggestion:
+        fuel_type: 'Tipo de combustível'
+        user: 'Usuário'
+        gas_station: 'Posto de combustível'
+        value: 'Valor'
+      user:
+        name: 'Nome'
+        surname: 'Sobrenome'
+        provider: 'Provedor'
+        price_suggestions: "Sugestões de preços"
+        fuel_supplies: "Abastecimentos"
+        ratings: "Avaliações"
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'
