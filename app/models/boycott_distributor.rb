@@ -2,6 +2,7 @@ class BoycottDistributor < ApplicationRecord
     validate :check_boycott_existence
 
     belongs_to :distributor
+    has_many :gas_stations, through: :distributor
 
     def self.boycott_existense(start_date, end_date)
         start_date_between = BoycottDistributor.where('? <= start_date AND ? >= start_date', start_date, end_date).first
