@@ -34,4 +34,13 @@ class GasStation < ApplicationRecord
       return self.distributor.image_path if !self.distributor.nil?
       return 'pump_map'
   end
+
+  def boycotted
+    current_date = Date.today
+    current_boycott = Boycott.where("? >= start_date and ? <= end_date", current_date, current_date).last
+    return true if !current_boycott.nil? && current_boycott.gas_stations.include?(self)
+    current_boycott_by_distributor = BoycottDistributor.where("? >= start_date and ? <= end_date", current_date, current_date).last
+    return true if !current_boycott_by_distributor.nil? && current_boycott_by_distributor.gas_stations.include?(self)
+    return false
+  end
 end

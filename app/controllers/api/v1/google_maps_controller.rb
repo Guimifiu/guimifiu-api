@@ -32,7 +32,7 @@ class Api::V1::GoogleMapsController < ApiController
       save_gas_stations(step_end_lat, step_end_lng, 1500)
       puts " Distância: #{step['distance']['text']}"
     end
-    render json: @gas_stations_found.to_json(methods: [:gas_price, :diesel_price, :alcohol_price, :reputation, :icon]), status: :ok
+    render json: @gas_stations_found.to_json(methods: [:gas_price, :diesel_price, :alcohol_price, :reputation, :icon, :boycotted]), status: :ok
   end
 
   def get_closest_gas_stations
@@ -40,7 +40,7 @@ class Api::V1::GoogleMapsController < ApiController
     longitude = params[:longitude]
     @gas_stations_found = []
     save_gas_stations(latitude, longitude, 5000)
-    render json: @gas_stations_found.to_json(methods: [:gas_price, :diesel_price, :alcohol_price, :reputation, :icon]), status: :ok
+    render json: @gas_stations_found.to_json(methods: [:gas_price, :diesel_price, :alcohol_price, :reputation, :icon, :boycotted]), status: :ok
   end
 
   private
