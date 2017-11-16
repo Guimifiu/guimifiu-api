@@ -15,4 +15,8 @@ class Node
   def to_s
     @name
   end
+
+  def <=>(other)
+    self.rating <=> other.rating
+  end
 end

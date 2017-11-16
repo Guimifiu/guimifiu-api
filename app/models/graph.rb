@@ -14,16 +14,14 @@ class Graph
   def add_node(node)
     nodes << node
     node.graph = self
-    if node.rating < 4
+    if node.rating < 1
       node.is_bad_node = true
       bad_nodes << node
     end
   end
 
-  def add_edge(from, to, weight)
-    if weight < 7
-      edges << Edge.new(from, to, weight)
-    end
+  def add_edge(from, to)
+    edges << Edge.new(from, to)
   end
 
   def check_edges()

@@ -10,6 +10,7 @@ class GoogleMaps
     url = "/place/nearbysearch/json?location=#{latitude},#{longitude}&radius=#{radius}&type=gas_station&key=#{@key}"
     response = self.class.get(url)
     body = JSON.parse response.body.encode("ASCII", { undef: :replace, replace: '' })
+    puts url
     return body['results']
   end
 
