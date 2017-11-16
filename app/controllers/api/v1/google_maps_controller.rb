@@ -1,5 +1,7 @@
 class Api::V1::GoogleMapsController < ApiController
-  before_action :set_google_maps, only: [:get_place_location, :get_gas_stations_on_direction, :get_closest_gas_stations]
+  before_action :set_google_maps, only: [:get_place_location,
+    :get_gas_stations_on_direction, :get_closest_gas_stations,
+    :get_direction]
 
   def get_place_location
     body = @google_maps.get_place_location(params[:place_id])
@@ -33,6 +35,19 @@ class Api::V1::GoogleMapsController < ApiController
       puts " Distância: #{step['distance']['text']}"
     end
     render json: @gas_stations_found.to_json(methods: [:gas_price, :diesel_price, :alcohol_price, :reputation, :icon, :boycotted]), status: :ok
+  end
+
+  def get_direction
+    origin = params[:origin]
+    destination = params[:destination]
+    body = @google_maps.get_direction(origin, destination)
+    p body['routes'][0]['legs'][0]['distance']
+    p body['routes'][0]['legs'][0]['duration']
+    response = {
+      "distance": body['routes'][0]['legs'][0]['distance']['text'],
+      "duration": body['routes'][0]['legs'][0]['duration']['text']
+    }
+    render json: response.to_json
   end
 
   def get_closest_gas_stations
