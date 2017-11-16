@@ -31,6 +31,10 @@ class FuelSupply < ApplicationRecord
     self.gas_station.vicinity
   end
 
+  def gas_station_icon
+    self.gas_station.icon
+  end
+
   def rating_stars
     self.rating.nil? ? nil : self.rating.stars
   end

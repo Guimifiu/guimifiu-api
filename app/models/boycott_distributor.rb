@@ -4,6 +4,10 @@ class BoycottDistributor < ApplicationRecord
     belongs_to :distributor
     has_many :gas_stations, through: :distributor
 
+    rails_admin do
+      exclude_fields :gas_stations
+    end
+
     def self.boycott_existense(start_date, end_date)
         start_date_between = BoycottDistributor.where('? <= start_date AND ? >= start_date', start_date, end_date).first
         end_date_between = BoycottDistributor.where('? >= start_date AND ? <= end_date', start_date, start_date).first

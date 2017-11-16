@@ -8,7 +8,7 @@ class Api::V1::FuelSuppliesController < ApiController
     if !month_year.nil? && !month_year.empty?
       @fuel_supplies = @fuel_supplies.select { |f| f.created_at.strftime('%m/%Y') == month_year }
     end
-    render json: @fuel_supplies.to_json(methods: [:date, :gas_station_name, :gas_station_vicinity, :rating_stars, :fuel_type_translated]), status: :ok
+    render json: @fuel_supplies.to_json(methods: [:date, :gas_station_name, :gas_station_icon, :gas_station_vicinity, :rating_stars, :fuel_type_translated]), status: :ok
   end
 
   def history_months
