@@ -2,7 +2,7 @@ namespace :create do
 
   desc "Create boycotts"
 
-  task boycott_distributor: :environment do
+  task weekly_boycott_list: :environment do
       graph = Graph.new
       google_maps = GoogleMaps.new
       gas_station_hash = Hash.new
@@ -29,12 +29,12 @@ namespace :create do
       graph.all_bad_nodes
 
       today = DateTime.now
+
       boycott = Boycott.create(start_date: today, end_date: today+7)
 
       graph.bad_nodes.each do |node|
         boycott.gas_stations << GasStation.find_by_id(node.name)
       end
 
-      boycott.save
   end
 end
