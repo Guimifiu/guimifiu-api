@@ -27,5 +27,14 @@ namespace :create do
       graph.all_bad_nodes
       graph.check_edges
       graph.all_bad_nodes
+
+      today = DateTime.now
+      boycott = Boycott.create(start_date: today, end_date: today+7)
+
+      graph.bad_nodes.each do |node|
+        boycott.gas_stations << GasStation.find_by_id(node.name)
+      end
+
+      boycott.save
   end
 end
