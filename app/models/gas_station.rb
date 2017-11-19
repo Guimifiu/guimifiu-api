@@ -11,27 +11,27 @@ class GasStation < ApplicationRecord
   belongs_to :distributor
 
   def gas_price
-    price_suggestion = price_suggestions.where(fuel_type: 'gas').last
+    price_suggestion = self.price_suggestions.where(fuel_type: 'gas').last
     price_suggestion.nil? ? nil : price_suggestion.value
   end
 
   def alcohol_price
-    price_suggestion = price_suggestions.where(fuel_type: 'alcohol').last
+    price_suggestion = self.price_suggestions.where(fuel_type: 'alcohol').last
     price_suggestion.nil? ? nil : price_suggestion.value
   end
 
   def diesel_price
-    price_suggestion = price_suggestions.where(fuel_type: 'diesel').last
+    price_suggestion = self.price_suggestions.where(fuel_type: 'diesel').last
     price_suggestion.nil? ? nil : price_suggestion.value
   end
 
   def reputation
-    stars = ratings.average(:stars)
+    stars = self.ratings.average(:stars)
     return number_with_precision(stars, precision: 2, separator: '.')
   end
 
   def icon
-    return distributor.image_path if !distributor.nil?
+    return self.distributor.image_path if !self.distributor.nil?
     return 'pump_map'
   end
 

@@ -10,33 +10,33 @@ class FuelSupply < ApplicationRecord
   }
 
   def fuel_type_translated
-    if fuel_type == 'gas'
+    if self.fuel_type == 'gas'
       return 'Gasolina'
-    elsif fuel_type == 'alcohol'
+    elsif self.fuel_type == 'alcohol'
       return 'Álcool'
-    elsif fuel_type == 'diesel'
+    elsif self.fuel_type == 'diesel'
       return 'Diesel'
     end
   end
 
   def date
-    created_at.strftime('%d/%m/%Y')
+    self.created_at.strftime('%d/%m/%Y')
   end
 
   def gas_station_name
-    gas_station.name
+    self.gas_station.name
   end
 
   def gas_station_vicinity
-    gas_station.vicinity
+    self.gas_station.vicinity
   end
 
   def gas_station_icon
-    gas_station.icon
+    self.gas_station.icon
   end
 
   def rating_stars
-    rating.nil? ? nil : rating.stars
+    self.rating.nil? ? nil : self.rating.stars
   end
 
 end
