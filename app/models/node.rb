@@ -9,7 +9,7 @@ class Node
   end
 
   def adjacent_edges
-    graph.edges.select{|e| e.from == self}
+    graph.edges.select { |e| e.from == self }
   end
 
   def to_s
@@ -17,6 +17,6 @@ class Node
   end
 
   def <=>(other)
-    self.rating <=> other.rating
+    rating <=> other.rating
   end
 end

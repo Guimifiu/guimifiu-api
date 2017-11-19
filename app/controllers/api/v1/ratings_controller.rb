@@ -10,7 +10,7 @@ class Api::V1::RatingsController < ApiController
       @response =
       {
         'message' => "Validation Failed",
-        'errors' => @rating.errors.full_messages,
+        'errors' => @rating.errors.full_messages
       }
       render json: @response, status: :conflict
     end

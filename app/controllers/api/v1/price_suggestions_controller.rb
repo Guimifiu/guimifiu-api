@@ -10,7 +10,7 @@ class Api::V1::PriceSuggestionsController < ApiController
       @response =
       {
         'message' => "Validation Failed",
-        'errors' => @price_suggestion.errors.full_messages,
+        'errors' => @price_suggestion.errors.full_messages
       }
       render json: @response, status: :conflict
     end

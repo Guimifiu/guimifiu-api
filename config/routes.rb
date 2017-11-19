@@ -34,7 +34,7 @@ Rails.application.routes.draw do
       get 'gas-stations/closest'          => 'google_maps#get_closest_gas_stations'
 
       # push_notifications
-      post 'push_notifications/at_gas_station_notification'  =>  'push_notifications#at_gas_station_notification'
+      post 'push_notifications/at_gas_station_notification' => 'push_notifications#at_gas_station_notification'
 
 
     end

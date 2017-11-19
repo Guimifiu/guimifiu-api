@@ -1,15 +1,15 @@
 RailsAdmin.config do |config|
 
-config.authorize_with do
+  config.authorize_with do
     authenticate_or_request_with_http_basic('Login required') do |username, password|
-    #   username == Rails.application.secrets.user &&
-    #   password == Rails.application.secrets.password
+      #   username == Rails.application.secrets.user &&
+      #   password == Rails.application.secrets.password
       username == ENV["ADMIN_LOGIN"] &&
-      password == ENV["ADMIN_PASSWORD"]
+        password == ENV["ADMIN_PASSWORD"]
     end
   end
 
-config.main_app_name = ["Guimifiu", "Admin"]
+  config.main_app_name = %w(Guimifiu Admin)
   ### Popular gems integration
 
   ## == Devise ==

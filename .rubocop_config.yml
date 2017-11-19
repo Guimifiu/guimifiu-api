@@ -8,6 +8,8 @@ Bundler/OrderedGems:
 #Complexity
 Metrics/BlockLength:
   Max: 50
+  Exclude:
+    - 'db/schema.rb'
 
 Metrics/LineLength:
   Enabled: false
@@ -96,4 +98,10 @@ Style/RedundantReturn:
   Enabled: false
 
 Style/BracesAroundHashParameters:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+Style/NegatedIf:
   Enabled: false

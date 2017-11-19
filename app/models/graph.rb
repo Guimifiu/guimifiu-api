@@ -24,7 +24,7 @@ class Graph
     edges << Edge.new(from, to)
   end
 
-  def check_edges()
+  def check_edges
     puts "Check edges:"
     nodes.each do |node|
       puts node.name

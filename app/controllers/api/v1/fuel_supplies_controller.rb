@@ -23,7 +23,7 @@ class Api::V1::FuelSuppliesController < ApiController
       @response =
       {
         'message' => "Validation Failed",
-        'errors' => @fuel_supply.errors.full_messages,
+        'errors' => @fuel_supply.errors.full_messages
       }
       render json: @response, status: :conflict
     end
