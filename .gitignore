@@ -15,4 +15,8 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# Coverage files
 complexity_report
+/coverage
+/vendor
